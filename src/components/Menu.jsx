@@ -7,6 +7,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import TextSnippetIcon from "@mui/icons-material/TextSnippet";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import { Link } from "react-router-dom";
 
 
 function Menu() {
@@ -27,31 +28,34 @@ function Menu() {
         <div className="options-page">
           <ul className="options-container">
             <li
-              className="options-list"
+              className={`options-list ${selectedOption === 'Design' ? 'selected' : ''}`}
               onClick={() => handleOptionClick("Design")}
             >
-              <div className="options-icon">
+              <Link to='/design'><div className="options-icon">
                 <DesignServicesIcon />
                 <p className="options-icon-name">Design</p>
               </div>
+              </Link>
             </li>
             <li
-              className="options-list"
+              className={`options-list ${selectedOption === 'Design' ? 'selected' : ''}`}
               onClick={() => handleOptionClick("WorkFlow")}
             >
-              <div className="options-icon">
+              <Link to='/workflow'><div className="options-icon">
                 <HomeWorkIcon />
                 <p className="options-icon-name">WorkFlow</p>
               </div>
+              </Link>
             </li>
             <li
-              className="options-list"
+              className={`options-list ${selectedOption === 'Design' ? 'selected' : ''}`}
               onClick={() => handleOptionClick("Data")}
             >
-              <div className="options-icon">
+              <Link to='/data'><div className="options-icon">
                 <DonutSmallIcon />
                 <p className="options-icon-name">Data</p>
               </div>
+              </Link>
             </li>
             <li className="options-list">
               <div className="options-icon">
@@ -64,22 +68,24 @@ function Menu() {
               </div>
             </li>
             <li
-              className="options-list"
+              className={`options-list ${selectedOption === 'Design' ? 'selected' : ''}`}
               onClick={() => handleOptionClick("Settings")}
             >
-              <div className="options-icon">
+              <Link to='/settings'><div className="options-icon">
                 <SettingsIcon />
                 <p className="options-icon-name">Settings</p>
               </div>
+              </Link>
             </li>
             <li
-              className="options-list"
+              className={`options-list ${selectedOption === 'Design' ? 'selected' : ''}`}
               onClick={() => handleOptionClick("Logs")}
             >
-              <div className="options-icon">
+              <Link to='/logs'><div className="options-icon">
                 <TextSnippetIcon />
                 <p className="options-icon-name">Logs</p>
               </div>
+              </Link>
             </li>
           </ul>
           {console.log(selectedOption)}

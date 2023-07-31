@@ -14,17 +14,17 @@ import ScreenShareIcon from '@mui/icons-material/ScreenShare';
 
 
 function handleFileClick() {
-    const fileInput = document.createElement('input');
-    fileInput.type = 'file';
-    fileInput.accept = '.pdf, .jpg';
-    fileInput.multiple = true;
-    fileInput.style.display = 'none';
+    // const fileInput = document.createElement('input');
+    // fileInput.type = 'file';
+    // fileInput.accept = '.pdf, .jpg';
+    // fileInput.multiple = true;
+    // fileInput.style.display = 'none';
 
-    fileInput.addEventListener('change', function() {
-      const files = fileInput.files;
-      console.log(files);
-    });
-    fileInput.click();
+    // fileInput.addEventListener('change', function() {
+    //   const files = fileInput.files;
+    //   console.log(files);
+    // });
+    // fileInput.click();
 }
 
 function BottomBar() {
