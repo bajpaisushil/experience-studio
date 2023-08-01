@@ -34,51 +34,51 @@ function BottomBar() {
         <ul className='bottombar-container'>
             <li className='bottombar-list' onClick={handleFileClick}>
                 <div>Files</div>
-                <FolderCopyIcon fontSize='medium'  style={{color: 'blue'}}  />
+                <FolderCopyIcon fontSize='small'  style={{color: 'blue'}}  />
             </li>
             <li className='bottombar-list' onClick={handleFileClick} >
                 <div>Security</div>
-                <SecurityIcon fontSize='medium'  style={{color: 'blue'}}  />
+                <SecurityIcon fontSize='small'  style={{color: 'blue'}}  />
             </li>
             <li className='bottombar-list' onClick={handleFileClick} >
                 <div>Config</div>
-                <PermDataSettingIcon fontSize='medium'  style={{color: 'blue'}}  />
+                <PermDataSettingIcon fontSize='small'  style={{color: 'blue'}}  />
             </li>
             <li className='bottombar-list' onClick={handleFileClick} >
                 <div>Ideas</div>
-                <TipsAndUpdatesIcon fontSize='medium'  style={{color: 'blue'}}  />
+                <TipsAndUpdatesIcon fontSize='small'  style={{color: 'blue'}}  />
             </li>
             <li className='bottombar-list' onClick={handleFileClick} >
                 <div>Mobiles</div>
-                <MobileScreenShareIcon fontSize='medium'  style={{color: 'blue'}}  />
+                <MobileScreenShareIcon fontSize='small'  style={{color: 'blue'}}  />
             </li>
             <li className='bottombar-list' onClick={handleFileClick} >
                 <div>Users</div>
-                <GroupIcon fontSize='medium'  style={{color: 'blue'}}  />
+                <GroupIcon fontSize='small'  style={{color: 'blue'}}  />
             </li>
             <li className='bottombar-list' onClick={handleFileClick} >
                 <div>Downloads</div>
-                <CloudDownloadIcon fontSize='medium'  style={{color: 'blue'}}  />
+                <CloudDownloadIcon fontSize='small'  style={{color: 'blue'}}  />
             </li>
             <li className='bottombar-list' onClick={handleFileClick} >
                 <div>Audit</div>
-                <VerifiedUserIcon fontSize='medium'  style={{color: 'blue'}}  />
+                <VerifiedUserIcon fontSize='small'  style={{color: 'blue'}}  />
             </li>
             <li className='bottombar-list' onClick={handleFileClick} >
                 <div>Subject</div>
-                <SubjectIcon fontSize='medium'  style={{color: 'blue'}}  />
+                <SubjectIcon fontSize='small'  style={{color: 'blue'}}  />
             </li>
             <li className='bottombar-list' onClick={handleFileClick} >
                 <div>Search</div>
-                <SavedSearchIcon fontSize='medium'  style={{color: 'blue'}}  />
+                <SavedSearchIcon fontSize='small'  style={{color: 'blue'}}  />
             </li>
             <li className='bottombar-list' onClick={handleFileClick} >
                 <div>Audio</div>
-                <AudiotrackIcon fontSize='medium'  style={{color: 'blue'}}  />
+                <AudiotrackIcon fontSize='small'  style={{color: 'blue'}}  />
             </li>
             <li className='bottombar-list' onClick={handleFileClick} >
                 <div>Share</div>
-                <ScreenShareIcon fontSize='medium'  style={{color: 'blue'}}  />
+                <ScreenShareIcon fontSize='small'  style={{color: 'blue'}}  />
             </li>
         </ul>
         </div>

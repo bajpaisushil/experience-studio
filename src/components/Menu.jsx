@@ -31,7 +31,7 @@ function Menu() {
               className={`options-list ${selectedOption === 'Design' ? 'selected' : ''}`}
               onClick={() => handleOptionClick("Design")}
             >
-              <Link to='/design'><div className="options-icon">
+              <Link className='menu-page-links' to='/design'><div className="options-icon">
                 <DesignServicesIcon />
                 <p className="options-icon-name">Design</p>
               </div>
@@ -41,7 +41,7 @@ function Menu() {
               className={`options-list ${selectedOption === 'Design' ? 'selected' : ''}`}
               onClick={() => handleOptionClick("WorkFlow")}
             >
-              <Link to='/workflow'><div className="options-icon">
+              <Link className='menu-page-links' to='/workflow'><div className="options-icon">
                 <HomeWorkIcon />
                 <p className="options-icon-name">WorkFlow</p>
               </div>
@@ -51,27 +51,27 @@ function Menu() {
               className={`options-list ${selectedOption === 'Design' ? 'selected' : ''}`}
               onClick={() => handleOptionClick("Data")}
             >
-              <Link to='/data'><div className="options-icon">
+              <Link className='menu-page-links' to='/data'><div className="options-icon">
                 <DonutSmallIcon />
                 <p className="options-icon-name">Data</p>
               </div>
               </Link>
             </li>
             <li className="options-list">
-              <div className="options-icon">
+              <div className="options-icon chatgpt-icon-div">
                 <img
                   src={require("../images/chatgpt-icon.png")}
                   alt="chatgpt-icon"
                   className="chatgpt-icon"
                 />
-                <p className="options-icon-name"></p>
+                <p className="options-icon-name">GPT</p>
               </div>
             </li>
             <li
               className={`options-list ${selectedOption === 'Design' ? 'selected' : ''}`}
               onClick={() => handleOptionClick("Settings")}
             >
-              <Link to='/settings'><div className="options-icon">
+              <Link className='menu-page-links' to='/settings'><div className="options-icon">
                 <SettingsIcon />
                 <p className="options-icon-name">Settings</p>
               </div>
@@ -81,7 +81,7 @@ function Menu() {
               className={`options-list ${selectedOption === 'Design' ? 'selected' : ''}`}
               onClick={() => handleOptionClick("Logs")}
             >
-              <Link to='/logs'><div className="options-icon">
+              <Link className='menu-page-links' to='/logs'><div className="options-icon">
                 <TextSnippetIcon />
                 <p className="options-icon-name">Logs</p>
               </div>

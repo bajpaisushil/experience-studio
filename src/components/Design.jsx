@@ -5,7 +5,7 @@ function Design() {
   return (
     <div className='design-page'>
         <div className='design-page-main'>
-            <div className='design-page-container' style={{color: 'blue', fontSize: '2rem'}}>
+            <div className='design-page-container' style={{color: 'blue', fontSize: '1.2rem'}}>
                 design Canvas
             </div>
         </div>
