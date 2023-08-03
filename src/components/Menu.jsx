@@ -5,104 +5,133 @@ import DonutSmallIcon from "@mui/icons-material/DonutSmall";
 
 import SettingsIcon from "@mui/icons-material/Settings";
 import TextSnippetIcon from "@mui/icons-material/TextSnippet";
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import { Link } from "react-router-dom";
 
+const elementTreeData = {
+  Design: ["Element A", "Element B", "Element C"],
+  WorkFlow: ["Element X", "Element Y", "Element Z"],
+  Data: ["Element P", "Element Q", "Element R"],
+  Settings: ["Element W", "Element X", "Element Y"],
+  Logs: ["Element M", "Element N", "Element O"],
+  Gpt: ["Element E", "Element F", "Element G"],
+};
 
 function Menu() {
   const [selectedOption, setSelectedOption] = useState(null);
   const [isExpanded, setIsExpanded] = useState(false);
 
   const handleExpandCollapse = () => {
-    console.log("expanded/collapsed");
     setIsExpanded((prev) => !prev);
   };
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
+    setIsExpanded(false);
   };
+
   return (
     <div className="menu-page">
       <div className="menu-options-part">
         <div className="options-page">
           <ul className="options-container">
             <li
-              className={`options-list ${selectedOption === 'Design' ? 'selected' : ''}`}
+              className={`options-list ${
+                selectedOption === "Design" ? "selected" : ""
+              }`}
               onClick={() => handleOptionClick("Design")}
             >
-              <Link className='menu-page-links' to='/design'><div className="options-icon">
-                <DesignServicesIcon />
-                <p className="options-icon-name">Design</p>
-              </div>
+              <Link className="menu-page-links" to="/design">
+                <div className="options-icon">
+                  <DesignServicesIcon />
+                  <p className="options-icon-name">Design</p>
+                </div>
               </Link>
             </li>
             <li
-              className={`options-list ${selectedOption === 'Design' ? 'selected' : ''}`}
+              className={`options-list ${
+                selectedOption === "Design" ? "selected" : ""
+              }`}
               onClick={() => handleOptionClick("WorkFlow")}
             >
-              <Link className='menu-page-links' to='/workflow'><div className="options-icon">
-                <HomeWorkIcon />
-                <p className="options-icon-name">WorkFlow</p>
-              </div>
+              <Link className="menu-page-links" to="/workflow">
+                <div className="options-icon">
+                  <HomeWorkIcon />
+                  <p className="options-icon-name">WorkFlow</p>
+                </div>
               </Link>
             </li>
             <li
-              className={`options-list ${selectedOption === 'Design' ? 'selected' : ''}`}
+              className={`options-list ${
+                selectedOption === "Data" ? "selected" : ""
+              }`}
               onClick={() => handleOptionClick("Data")}
             >
-              <Link className='menu-page-links' to='/data'><div className="options-icon">
-                <DonutSmallIcon />
-                <p className="options-icon-name">Data</p>
-              </div>
+              <Link className="menu-page-links" to="/data">
+                <div className="options-icon">
+                  <DonutSmallIcon />
+                  <p className="options-icon-name">Data</p>
+                </div>
               </Link>
             </li>
-            <li className="options-list">
+            <li className="options-list" onClick={()=> handleOptionClick("Gpt")}>
               <div className="options-icon chatgpt-icon-div">
-                <img
+                {/* <img
                   src={require("../images/chatgpt-icon.png")}
                   alt="chatgpt-icon"
                   className="chatgpt-icon"
-                />
-                <p className="options-icon-name">GPT</p>
+                /> */}
+                <Link to="/gpt" className="menu-page-links">
+                  <div className="options-icon-name gpt-text">GPT</div>
+                </Link>
               </div>
             </li>
             <li
-              className={`options-list ${selectedOption === 'Design' ? 'selected' : ''}`}
+              className={`options-list ${
+                selectedOption === "Design" ? "selected" : ""
+              }`}
               onClick={() => handleOptionClick("Settings")}
             >
-              <Link className='menu-page-links' to='/settings'><div className="options-icon">
-                <SettingsIcon />
-                <p className="options-icon-name">Settings</p>
-              </div>
+              <Link className="menu-page-links" to="/settings">
+                <div className="options-icon">
+                  <SettingsIcon />
+                  <p className="options-icon-name">Settings</p>
+                </div>
               </Link>
             </li>
             <li
-              className={`options-list ${selectedOption === 'Design' ? 'selected' : ''}`}
+              className={`options-list ${
+                selectedOption === "Design" ? "selected" : ""
+              }`}
               onClick={() => handleOptionClick("Logs")}
             >
-              <Link className='menu-page-links' to='/logs'><div className="options-icon">
-                <TextSnippetIcon />
-                <p className="options-icon-name">Logs</p>
-              </div>
+              <Link className="menu-page-links" to="/logs">
+                <div className="options-icon">
+                  <TextSnippetIcon />
+                  <p className="options-icon-name">Logs</p>
+                </div>
               </Link>
             </li>
           </ul>
           {console.log(selectedOption)}
-
         </div>
       </div>
       <div className="menu-collapsable-part">
         {selectedOption && (
-            <div className="collapsable-page">
-            <div className="collapsable-page-heading">{selectedOption}</div>
+          <div className="collapsable-page">
+            <div className="collapsable-page-heading">
+              {selectedOption}
+            </div>
             <div onClick={handleExpandCollapse} className="collapsable-page-elemtree">
-                {isExpanded? <ExpandLessIcon />: <ExpandMoreIcon />}Elements Tree</div>
+              {isExpanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+              Elements Tree
+            </div>
             {isExpanded && (
               <div className="element-tree">
-                <div>CSV</div>
-                <div>PDF</div>
-                <div>Text</div>
+                {elementTreeData[selectedOption].map((element) => (
+                  <div key={element}>{element}</div>
+                ))}
               </div>
             )}
           </div>

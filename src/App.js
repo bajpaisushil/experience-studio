@@ -7,6 +7,7 @@ import WorkFlow from "./components/WorkFlow";
 import Logs from "./components/Logs";
 import Home from "./components/Home";
 import Settings from "./components/Settings";
+import Gpt from "./components/Gpt";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/workflow" element={<WorkFlow />} />
             <Route path="/logs" element={<Logs />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/gpt" element={<Gpt />} />
           </Routes>
         </div>
       </BrowserRouter>
