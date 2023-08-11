@@ -56,7 +56,7 @@
   text-decoration: none;
 }
 .options-icon-name{
-  font-size: .9rem;
+  font-size: .7rem;
 }
 
 .options-list {
@@ -226,3 +226,4 @@
 .canvas img {
   position: absolute; /* Position the icons absolutely within the canvas */
 }
+

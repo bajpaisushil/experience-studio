@@ -27,41 +27,42 @@ function WorkFlow() {
   };
 
   const handleDrop = (e) => {
-    // e.preventDefault();
-    // const iconData = JSON.parse(e.dataTransfer.getData("icon"));
-    // const canvasRect = e.currentTarget.getBoundingClientRect();
-    // const newPosition = {
-    //   x: e.clientX - canvasRect.left,
-    //   y: e.clientY - canvasRect.top,
-    // };
-    // const newIcon = {
-    //   ...iconData,
-    //   id: Date.now(),
-    //   position: newPosition,
-    // };
-    // setIconsOnCanvas([...iconsOnCanvas, newIcon]);
     e.preventDefault();
-    if (!draggedIcon) return;
+    if (draggedIcon) {
+      const canvasRect = e.currentTarget.getBoundingClientRect();
+      const newPosition = {
+        x: e.clientX - canvasRect.left,
+        y: e.clientY - canvasRect.top,
+      };
+      const newIcon = {
+        ...draggedIcon,
+        id: Date.now(),
+        position: newPosition,
+        width: 100, // Set a fixed width of 5rem
+        height: 100, // Set a fixed height of 5rem
+      };
+      setIconsOnCanvas([...iconsOnCanvas, newIcon]);
+      setDraggedIcon(null);
+    }
+  };
 
-    const canvasRect = e.currentTarget.getBoundingClientRect();
-    const newPosition = {
-      x: e.clientX - canvasRect.left,
-      y: e.clientY - canvasRect.top,
-    };
-    const newIcon = {
-      ...draggedIcon,
-      id: Date.now(),
-      position: newPosition,
-    };
-    setIconsOnCanvas([...iconsOnCanvas, newIcon]);
-    setDraggedIcon(null);
+  const handleIconDrag = (e, icon) => {
+    if (draggedIcon === icon) {
+      const canvasRect = e.currentTarget.getBoundingClientRect();
+      const newPosition = {
+        x: e.clientX - canvasRect.left,
+        y: e.clientY - canvasRect.top,
+      };
+
+      setDraggedIcon((prevIcon) => ({
+        ...prevIcon,
+        position: newPosition,
+      }));
+    }
   };
 
   return (
-    <div className="workflow-page" onDrop={(e) => {
-      e.preventDefault();
-      handleDrop(e);
-    }}
+    <div className="workflow-page" onDrop={handleDrop}
     onDragOver={(e) => e.preventDefault()}>
       <div className="workflow-page-main">
         <div className="workflow-page-container page-text">
@@ -73,10 +74,7 @@ function WorkFlow() {
           <div
             key={icon.id}
             className="graph-icon graph-icon-1"
-            draggable // Add the draggable attribute
-            // onDragStart={(e) => {
-            //   e.dataTransfer.setData("icon", JSON.stringify(icon));
-            // }}
+            draggable
             onDragStart={(e) => handleIconDragStart(e, icon)}
             onDragEnd={handleIconDragEnd}
           >
@@ -88,28 +86,33 @@ function WorkFlow() {
           </div>
         ))}
       </div>
-      <div
-        className="canvas">
+      
+      <div className="canvas">
         {iconsOnCanvas.map((icon) => (
           <ResizableBox
             key={icon.id}
-            width={100}
-            height={100}
+            width={icon.width}
+            height={icon.height}
             minConstraints={[50, 50]}
             style={{
               position: "absolute",
-              left: icon.position.x, // Set the left position
-              top: icon.position.y, // Set the top position
+              left: icon.position.x,
+              top: icon.position.y,
             }}
           >
             <img
               src={require(`../images/${icon.address}.png`)}
               alt={`${icon.address}`}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "contain",
+              }}
             />
           </ResizableBox>
         ))}
       </div>
-      <div className="workflow-page-footer">
+     <div className="workflow-page-footer">
         <BottomBar />
       </div>
     </div>
