@@ -4,7 +4,7 @@ import BottomBar from "./Bottombar";
 function Gpt() {
   return (
     <div className="gpt-page">
-      <div className="page-text">Gpt Canvas</div>
+      <div className="gpt-text page-text">Gpt Canvas</div>
       <div className="gpt-page-footer">
         <BottomBar />
       </div>

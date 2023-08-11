@@ -3,9 +3,9 @@ import BottomBar from './Bottombar';
 
 function Design() {
   return (
-    <div className='design-page page-text'>
+    <div className='design-page'>
         <div className='design-page-main'>
-            <div className='design-page-container' style={{color: 'blue', fontSize: '1.2rem'}}>
+            <div className='design-page-container page-text'>
                 Design Canvas
             </div>
         </div>

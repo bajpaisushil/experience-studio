@@ -16,7 +16,7 @@ function App() {
         <div className="menu-part">
           <Menu />
         </div>
-        <div className="home-part">
+        <div className="main-part">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/design" element={<Design />} />

@@ -16,12 +16,12 @@
   flex: 20%;
   height: 100vh;
 }
-.home-part {
+.main-part {
   flex: 80%;
   height: 94vh;
   border-bottom: solid 1px gray;
   background-color: whitesmoke;
-  background-image: url('./images/whiteBg.webp');
+  /* background-image: url('./images/whiteBg.webp'); */
 }
 
 /* Menu Styles */
@@ -29,15 +29,9 @@
   display: flex;
 }
 .page-text{
-  font-size: 1.2rem;
-  color: blue;
+  font-size: .9rem;
 }
 
-.gpt-text{
-  /* height: fit-content; */
-  /* text-align: center; */
-  font-size: 19rem;
-}
 .menu-options-part {
   flex: 20%;
   height: 100vh;
@@ -50,6 +44,7 @@
 }
 .menu-page-links{
   text-decoration: none;
+  color: black;
 }
 
 
@@ -63,9 +58,7 @@
 .options-icon-name{
   font-size: .9rem;
 }
-.gpt-text{
-  font-size: 1.5rem;
-}
+
 .options-list {
   margin: 1rem auto auto auto;
   cursor: pointer;
@@ -120,16 +113,20 @@
 
 /* Collapsable Page */
 .collapsable-page-heading{
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: .9rem;
+  font-weight: 400;
 }
 .collapsable-page-elemtree{
   text-align: left;
-  font-size: 1rem;
+  outline: solid 1px gray;
+  font-size: 0.9rem;
+  background: lightgray;
+  margin: 0.5rem auto auto auto;
   cursor: pointer;
 }
 .element-tree{
   width: fit-content;
+  font-size: 0.9rem;
   margin: 1rem auto auto 1rem;
 }
 
@@ -190,4 +187,42 @@
 }
 .collapsable-tree{
   
+}
+
+.workflow-page{
+  height: 94vh;
+  background-image: url('./images/whiteBg.webp');
+}
+.data-page{
+  height: 94vh;
+  background-image: url('./images/whiteBg.webp');
+}
+.design-page{
+  height: 94vh;
+  background-image: url('./images/whiteBg.webp');
+}
+.gpt-page{
+  height: 94vh;
+  background-image: url('./images/whiteBg.webp');
+}
+.home-page{
+  height: 94vh;
+  background-image: url('./images/whiteBg.webp');
+}
+.setting-page{
+  height: 94vh;
+  background-image: url('./images/whiteBg.webp');
+}
+.logs-page{
+  height: 94vh;
+  background-image: url('./images/whiteBg.webp');
+}
+
+.canvas {
+  position: relative; /* Add relative positioning to the canvas container */
+  /* ... other styles ... */
+}
+
+.canvas img {
+  position: absolute; /* Position the icons absolutely within the canvas */
 }

@@ -37,7 +37,6 @@ function Data() {
       <div className="data-page-main">
         <div
           className="data-page-container page-text"
-          style={{ color: "blue", fontSize: "1.2rem" }}
         >
           Data Canvas
         </div>

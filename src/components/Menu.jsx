@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 const elementTreeData = {
   Design: ["Element A", "Element B", "Element C"],
-  WorkFlow: ["Element X", "Element Y", "Element Z"],
+  WorkFlow: ["Open AI", "Hagging Face", "LLaMa"],
   Data: ["Element P", "Element Q", "Element R"],
   Settings: ["Element W", "Element X", "Element Y"],
   Logs: ["Element M", "Element N", "Element O"],
@@ -20,7 +20,7 @@ const elementTreeData = {
 
 function Menu() {
   const [selectedOption, setSelectedOption] = useState(null);
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
 
   const handleExpandCollapse = () => {
     setIsExpanded((prev) => !prev);
@@ -28,7 +28,7 @@ function Menu() {
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
-    setIsExpanded(false);
+    setIsExpanded(true);
   };
 
   return (
