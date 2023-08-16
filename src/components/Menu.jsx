@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 const elementTreeData = {
   Design: ["Element A", "Element B", "Element C"],
-  WorkFlow: ["Open AI", "Hagging Face", "LLaMa"],
+  WorkFlow: ["Open AI", "Hugging Face", "LLaMa"],
   Data: ["Element P", "Element Q", "Element R"],
   Settings: ["Element W", "Element X", "Element Y"],
   Logs: ["Element M", "Element N", "Element O"],
