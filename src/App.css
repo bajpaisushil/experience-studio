@@ -219,37 +219,50 @@
 }
 
 .canvas {
-  position: relative; /* Add relative positioning to the canvas container */
-  /* ... other styles ... */
+  position: relative;
 }
 
 .canvas img {
-  position: absolute;
+  /* position: absolute; */
+  overflow: auto;
+}
+.icon-on-canvas-container{
+  
+}
+.icon-on-canvas{
+  display: flex;
+  overflow: hidden;
+  resize: both;
+  height: fit-content;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.icon-on-canvas img {
+  width: 100%;
+  margin: auto;
 }
 
 .icon-text-input {
   position: relative;
-  width: 70%;
-  height: 80%;
-  margin: 1rem auto auto 1rem;
-  outline: solid 1px lightgray;
-  border: none;
+  /* outline: solid 1px gray; */
   background: transparent;
   color: #333;
   font-size: 1.1rem;
-  padding: 1rem;
+  padding: 4px;
+  width: 90%;
+  margin: 5px auto 1rem auto;
+  height: 5rem;
   text-align: center;
-  border-radius: 30%;
-}
-.icon-on-canvas{
-  resize: both;
-  overflow: auto;
+  border-radius: 2%;
+  overflow: hidden;
 }
 
 .delete-icon-button {
-  position: absolute;
+  /* position: absolute;
   top: 0px;
-  right: 0px;
+  right: 0px; */
+  margin: auto;
   background-color: #ff0000;
   color: #ffffff;
   border: none;
@@ -257,4 +270,49 @@
   cursor: pointer;
   font-size: 12px;
 }
+.icon-menu{
+  /* position: absolute;
+  top: -5rem;
+  right: -5rem; */
+  position: absolute;
+  top: 1rem;
+  right: 50%;
+  outline: solid 2px gray;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.menu-card {
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  width:6rem;
+  /* top: 0px;
+  left: 0px; */
+  /* z-index: 101; */
+}
+
+.menu-option {
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: 5px;
+  color: #333;
+  cursor: pointer;
+  margin: 4px 4px 4px auto;
+  padding: 3px;
+  width: fit-content;
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+.menu-option button{
+  border: none;
+}
+
+.menu-option:hover {
+  background-color: #e0e0e0;
+}
+
 

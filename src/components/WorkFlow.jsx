@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import BottomBar from "./Bottombar";
-import { ResizableBox } from "react-resizable"; // Import ResizableBox from react-resizable
+import DeleteIcon from '@mui/icons-material/Delete';
+
 
 function WorkFlow() {
   const graphIcons = [
@@ -30,6 +31,9 @@ function WorkFlow() {
   ];
   const [iconsOnCanvas, setIconsOnCanvas] = useState([]);
   const [draggedIcon, setDraggedIcon] = useState(null);
+  const [openMenuIconId, setOpenMenuIconId] = useState(null);
+  const menuRef = useRef(null);
+
   const handleIconDragStart = (e, icon) => {
     setDraggedIcon(icon);
   };
@@ -58,6 +62,18 @@ function WorkFlow() {
     }
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setOpenMenuIconId(null); // Close the menu if clicked outside
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
   // const handleIconDrag = (e, icon) => {
   //   if (draggedIcon === icon) {
   //     const canvasRect = e.currentTarget.getBoundingClientRect();
@@ -104,28 +120,31 @@ function WorkFlow() {
 
       <div className="canvas">
         {iconsOnCanvas.map((icon) => (
-          <div
-            key={icon.id}
-            className={`icon-on-canvas`}
-            style={{
-              width: icon.width,
-              height: icon.height,
-              borderRadius: "10px",
-              position: "absolute",
-              left: icon.position.x,
-              top: icon.position.y,
-              cursor: "move",
-            }}
-            draggable
-            onDragStart={(e) => handleIconDragStart(e, icon)}
-          >
+          <div>
+          <div className="icon-on-canvas-container" key={icon.id}>
+            <div
+              key={icon.id}
+              className={`icon-on-canvas`}
+              style={{
+                width: icon.width,
+                height: icon.height,
+                borderRadius: "10px",
+                position: "absolute",
+                left: icon.position.x,
+                top: icon.position.y,
+                cursor: "move",
+              }}
+              draggable
+              onDragStart={(e) => handleIconDragStart(e, icon)}
+            >              
               <img
                 src={require(`../images/${icon.address}.png`)}
+                className="image-on-canvas"
                 alt={`${icon.address}`}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "contain",
+                onClick={(e) => {
+                  e.stopPropagation();
+                  console.log("area clicked");
+                  // setOpenMenuIconId(icon.id);
                 }}
               />
               <textarea
@@ -144,19 +163,46 @@ function WorkFlow() {
                   );
                 }}
               />
-              <button
-                className="delete-icon-button"
-                onClick={() => {
-                  setIconsOnCanvas((prevIcons) =>
-                    prevIcons.filter((prevIcon) => prevIcon.id !== icon.id)
-                  );
-                }}
-              >
-                X
-              </button>
+              
+            </div>
+          </div>
+          {openMenuIconId === icon.id && (
+            <div
+              ref={menuRef}
+              className="icon-menu"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="menu-card">
+                <div className="menu-option">
+                  <button
+                    className="delete-icon-button"
+                    onClick={() => {
+                      setIconsOnCanvas((prevIcons) =>
+                        prevIcons.filter(
+                          (prevIcon) => prevIcon.id !== icon.id
+                        )
+                      );
+                    }}
+                  >
+                    <DeleteIcon />
+                  </button>
+                </div>
+                <div className="menu-option">
+                  <button
+                    className="other"
+                    onClick={() => console.log("Option 2 clicked")}
+                  >
+                    Other
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
           </div>
         ))}
+        
       </div>
+      
       <div className="workflow-page-footer">
         <BottomBar />
       </div>
