@@ -74,20 +74,21 @@ function WorkFlow() {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
-  // const handleIconDrag = (e, icon) => {
-  //   if (draggedIcon === icon) {
-  //     const canvasRect = e.currentTarget.getBoundingClientRect();
-  //     const newPosition = {
-  //       x: e.clientX - canvasRect.left,
-  //       y: e.clientY - canvasRect.top,
-  //     };
+  useEffect(() => {
+    const sessionToken = Date.now().toString(); // Generate a unique session token
+    localStorage.setItem(sessionToken, JSON.stringify(iconsOnCanvas));
+    sessionStorage.setItem('currentSessionToken', sessionToken);
+  }, [iconsOnCanvas]);
 
-  //     setDraggedIcon((prevIcon) => ({
-  //       ...prevIcon,
-  //       position: newPosition,
-  //     }));
-  //   }
-  // };
+  useEffect(() => {
+    const currentSessionToken = sessionStorage.getItem('currentSessionToken');
+    const savedState = localStorage.getItem(currentSessionToken);
+    console.log('saved-state: ', savedState);
+    if (savedState) {
+      console.log('parse', JSON.parse(savedState));
+      setIconsOnCanvas(JSON.parse(savedState));
+    }
+  }, []);
 
   return (
     <div
@@ -120,7 +121,7 @@ function WorkFlow() {
 
       <div className="canvas">
         {iconsOnCanvas.map((icon) => (
-          <div>
+          <div key={icon.id}>
           <div className="icon-on-canvas-container" key={icon.id}>
             <div
               key={icon.id}
@@ -136,7 +137,23 @@ function WorkFlow() {
               }}
               draggable
               onDragStart={(e) => handleIconDragStart(e, icon)}
-            >              
+            >
+              <textarea
+                type="text"
+                className="icon-text-input-image"
+                placeholder="Enter text"
+                value={icon.text}
+                onChange={(e) => {
+                  const newText = e.target.value;
+                  setIconsOnCanvas((prevIcons) =>
+                    prevIcons.map((prevIcon) =>
+                      prevIcon.id === icon.id
+                        ? { ...prevIcon, text: newText }
+                        : prevIcon
+                    )
+                  );
+                }}
+              />
               <img
                 src={require(`../images/${icon.address}.png`)}
                 className="image-on-canvas"
@@ -144,9 +161,10 @@ function WorkFlow() {
                 onClick={(e) => {
                   e.stopPropagation();
                   console.log("area clicked");
-                  // setOpenMenuIconId(icon.id);
+                  setOpenMenuIconId(icon.id);
                 }}
               />
+
               <textarea
                 type="text"
                 className="icon-text-input"
