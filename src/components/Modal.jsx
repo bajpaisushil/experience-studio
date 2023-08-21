@@ -2,12 +2,13 @@ import React from "react";
 import Graph from "../graphs/collapsableTree";
 import Globe from "../graphs/versorDragging";
 import RotatingGlobe from "../graphs/Globe";
+import ScatterPlot from "../graphs/Scatter";
 
 
 const modelContentMap={
   a: <Graph />,
   b: <RotatingGlobe />,
-
+  c: <ScatterPlot />,
 }
 
 const Modal = ({ name, onClose }) => {
